@@ -1,0 +1,114 @@
+Should tear wear a helmet
+# Threat Model 
+Threat modeling means looking at a system to find security or privacy risks before they become issues.
+we can do it by asking four questions: what are we working on,what can go wrong,What are we going to do about it,and did we do a good enough job.
+it's not just for security experts it's for anyone who cares about system saftey.it also emphasizes values like fixing real problem ,working together over rigid tools,doing the work instead of just planning it,and 
+always refining instead of treating it as done.
+My thought: It’s more about how you think than about following a strict method.
+
+
+# Shostack 2022- world's shortest threat modelling course
+A short set of lessons (About 15 min total) that explain the basics.
+Uses STRIDE(Spooning,Tampering.Repudiation,info disclosure,Dos,Elevation of privilege) to think about threats.
+Shows how data flow diagrams help visualize where problems might show up.
+The overall vibe is don't overcomplicate this, you can start small.
+MY thought: This one made me fell like threat modeling is approachable.
+
+# OWASP CheatSheets Series Team 2021
+Practical reference with steps for scoping, modeling, and prioritizing.
+Lists different approaches (STRIDE, CIA, attack trees, etc.).
+Helps connect the theory into something you can actually do.
+My thought: I’d probably keep this open while working on a real project.
+
+# Darknet Diaries Episode
+I picked episode 55,The Beirut Bank Job.
+Hackers targeted lebanese banks and pulled off fraudulent transfers.
+Geopolitical and financial instability made the banks more attractive targets.
+showed how money motivates attackers and how weak system can be exploited.
+lesson: financial institutions should basically assume they’re always being watched by attackers.
+
+# Security Hygiene
+Some basic practices everyone (individuals and companies) should follow:
+Use strong, unique passwords with a password manager.
+Enable two-factor authentication everywhere it’s offered.
+Keep operating systems and applications updated.
+Regular backups, and actually test restoring them.
+Encrypt sensitive data, both in transit and at rest.
+Least-privilege access (employees only get the access they need).
+Be cautious with phishing emails and links.
+Monitor logs and set up alerts for suspicious behavior.
+
+Make-belief boogie-man - a threat model for imaginary company.
+Company Meditrack
+It is a small SaaS startup provides an onlinr health record platform for private clinics.Doctors use it to store patient info and share lab results securely with patients.
+What are we working on
+# Assets (what's Valuable)
+ Patient health records(Crown Jewels)
+ Authentication system (doctor's and patients accounts)
+ Billing data (credit card details, invoices)
+ company reputation
+# key systems
+ web app (main portas for clinics + patients)
+ Backend API
+ Database with sensitive health info
+ Third party payment processor
+# customer touchpoints
+ login via website and mobile app
+ customer support portal
+ Email notification 
+
+# Diagram
+patient/Doctor - web/Mobile App - API- Database - payment Gateway
+
+# What can go wrong 
+spoofing: Attacker fakes login page - steals doctor credentials
+Tampering: someone modifies lab results in the database 
+Info disclouser: Database breach leaks patient health data 
+Denial of service: Attackers flood the system, clinics can't access records
+
+# Biggest risks 
+patient data breach
+service outage
+
+# Threat actors 
+Cybercriminals motivated by selling health records.
+Maybe hacktivists if the company is seen as unethical.
+
+# What are we going to do about it?
+Mitigate 
+MFA for all accounts
+Encrypt health records at rest and in transit
+Regular backups and offline copies for ransomware recovery
+
+Eliminate 
+Don't store card numbers locally
+Disable unused admin accounts
+
+Transfer
+Buy cyber insurance
+Legal contracts with hosting provider to ensure uptime gurantees
+
+Accept
+Minor risks like spam through the support portral
+
+# Did we do good Enough
+Schedule regular security audits and pentests
+keep software updated
+continuous threat modeling sessions every time we add new features
+Monitor logs and add instructions detection
+
+# Sources 
+
+Braiterman, J., Grigg, J., Morrison, S., Shostack, A., & Stewart, A. (2020). Threat modeling manifesto. Retrieved August 25, 2025, URL https://www.threatmodelingmanifesto.org/
+
+OWASP Cheat Sheet Series Team. (2021). Threat modeling cheat sheet. OWASP Foundation. Retrieved August 25, 2025, URL https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html
+
+Darknet Diaries. (2020, October 13). Ep. 55: The Beirut Bank Job [Podcast]. Retrieved August 25, 2025, URL https://darknetdiaries.com/episode/55/
+
+Karvinen, T. (2024). Information security course. Retrieved August 25, 2025, URL https://terokarvinen.com/information-security
+
+
+
+
+
+
