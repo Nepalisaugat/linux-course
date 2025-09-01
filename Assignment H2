@@ -1,0 +1,49 @@
+#Read and Summarize
+Hutchins et al. 2011 - Intelligence-Driven Computer Network Defence Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains
+#Abstract :
+Traditional defences focus too much on single alerts or malware signatures.
+A better approach is to look at campaigns over time: how attackers operate, not just what they send.
+The “intrusion kill chain” model explains cyberattacks in phases (like military kill chain).
+Understanding each phase allows defenders to detect, deny, disrupt, or degrade attacks earlier.
+
+#Intrusion Kill Chain:
+Seven stages: Reconnaissance, Weaponization, Delivery, Exploitation, Installation, Command & Control, and Actions on Objectives.
+Every stage gives defenders a chance to break the chain.
+Even if attackers succeed in one step, defenders can still block later stages.
+The model shifts thinking from isolated incidents to adversary campaigns.
+
+#My comment/question:
+The model is linear, but modern attacks can loop back (e.g., repeated recon or new malware delivery). 
+How do defenders adapt when attackers don’t follow the “straight line” chain?
+
+#Tactics, Tools and Procedures (MITRE ATT&CK context)
+Tactic (definition + example):
+A tactic is the adversary’s goal or reason for an action the “why”.
+Example: Credential Access (goal = stealing passwords, keys, or tokens).
+Technique (definition + example):
+A technique is how the goal is achieved.
+Example: Brute Force (ATT&CK T1110) trying many passwords until one works.
+Subtechnique (definition + example):
+A subtechnique breaks a technique into a more specific method.
+Example: Password Guessing (T1110.001) manually or automatically guessing common passwords.
+Procedure:
+A procedure is a real world implementation of a technique/sub technique by an actual adversary.
+Example: Using the tool Hydra to automate password guessing on SSH.
+
+#Voluntary Bonus: Attack Story
+Attack scenario (simplified):
+1.Reconnaissance (T1592 Gather Victim Host Information) - Attacker scans the company’s web server with Nmap.
+2.Initial Access (T1190 Exploit Public-Facing Application) -Exploits a vulnerable WordPress plugin to upload a web shell.
+3.Execution (T1059 Command and Scripting Interpreter) - Runs commands through the web shell using PHP.
+4.Persistence (T1505.003 Web Shell) - Installs a hidden PHP backdoor for re-entry.
+5.Credential Access (T1003 OS Credential Dumping) -Uses mimikatz to dump cached Windows credentials.
+6.Defence Evasion (T1070 Indicator Removal) - Deletes logs to hide traces.
+7.Exfiltration (T1041 Exfiltration Over C2 Channel) - Sends stolen passwords to attacker’s server via HTTPS.
+Defensive actions:
+IDS alerts on abnormal PHP traffic (C2 channel).
+SOC analyst detects log deletion attempt.
+Access is cut, and web shell is quarantined.
+Outcome: Attack stopped before data could be misused
+
+
+
