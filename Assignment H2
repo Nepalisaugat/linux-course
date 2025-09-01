@@ -44,6 +44,13 @@ IDS alerts on abnormal PHP traffic (C2 channel).
 SOC analyst detects log deletion attempt.
 Access is cut, and web shell is quarantined.
 Outcome: Attack stopped before data could be misused
+#Sources:
+Hutchins, E., Cloppert, M. & Amin, R. 2011. Intelligence-Driven Computer Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains. Lockheed Martin.URL: https://www.lockheedmartin.com/content/dam/lockheed-martin/rms/documents/cyber/LM-White-Paper-Intel-Driven-Defense.pdf
+ [Accessed 29 August 2025].
+MITRE ATT&CK. 2025. ATT&CK for Enterprise – FAQ (General). The MITRE Corporation.URL: https://attack.mitre.org/resources/faq/
+ [Accessed 1 August 2025].
+Debian. 2025. Debian Live 13 (amd64, XFCE). Debian Project.URL: https://www.debian.org/CD/live/
+ [Accessed 1 August 2025]
 
 
 
